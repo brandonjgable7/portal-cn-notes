@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mlb · 简明访问指南与提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.8rem 2rem 2.4rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2.8rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto 1.4rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eef2ff;
+            color: #1e3a8a;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.35rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid #c7d2fe;
+        }
+
+        /* ---------- cards section ---------- */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2.6rem;
+        }
+
+        @media (min-width: 640px) {
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #e2e4e9;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+
+        .card .icon {
+            font-size: 1.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* ---------- description / guide ---------- */
+        .guide {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2rem 2.4rem;
+            border: 1px solid #e2e4e9;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            margin-bottom: 2.4rem;
+        }
+
+        .guide h2 {
+            font-size: 1.6rem;
+            font-weight: 550;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .guide .intro {
+            font-size: 1rem;
+            color: #374151;
+            max-width: 720px;
+        }
+
+        .guide ul {
+            list-style: none;
+            margin-top: 1.2rem;
+        }
+
+        .guide li {
+            padding: 0.65rem 0 0.65rem 1.8rem;
+            position: relative;
+            border-bottom: 1px dashed #e9ecef;
+            color: #1f2937;
+            font-size: 0.98rem;
+        }
+
+        .guide li:last-child {
+            border-bottom: none;
+        }
+
+        .guide li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .guide .highlight {
+            background: #fef9c3;
+            padding: 0.1rem 0.3rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* ---------- faq summary ---------- */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 1.8rem 2.2rem;
+            border: 1px solid #e2e4e9;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 550;
+            margin-bottom: 1.6rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item .a {
+            color: #4b5563;
+            font-size: 0.95rem;
+            padding-left: 0.2rem;
+        }
+
+        /* ---------- bottom links ---------- */
+        .bottom-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem 2.2rem;
+            padding: 1.6rem 0 0.6rem;
+            border-top: 1px solid #dce0e5;
+            margin-top: 0.6rem;
+        }
+
+        .bottom-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .bottom-links a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.85rem;
+            padding: 2rem 0 0.2rem;
+        }
+
+        /* inline link in paragraph */
+        .inline-link {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #93c5fd;
+        }
+
+        .inline-link:hover {
+            border-bottom-style: solid;
+        }
+
+        /* responsive touches */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .guide, .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- hero -->
+    <div class="hero">
+        <div class="tagline">简明指南 · 日常提醒</div>
+        <h1>mlb · 省心访问口袋手册</h1>
+        <p class="sub">不绕路，不说废话。几个要点帮你顺畅抵达想去的页面。</p>
+    </div>
+
+    <!-- 优势区 -->
+    <div class="cards">
+        <div class="card">
+            <div class="icon">⏱️</div>
+            <h3>少一步是一步</h3>
+            <p>直达路径很清晰，不需要层层跳转。把时间省下来做更重要的事。</p>
+        </div>
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>环境自检清单</h3>
+            <p>网络、浏览器、链接完整性——花十秒过一遍，避免九成的小卡顿。</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔒</div>
+            <h3>信息边界感</h3>
+            <p>注意页面地址栏、不随意分享凭证，对自己和平台都负责。</p>
+        </div>
+    </div>
+
+    <!-- 说明区 / 简明指南 -->
+    <div class="guide">
+        <h2>从准备到打开：几个顺手提醒</h2>
+        <p class="intro">
+            不管是第一次还是常客，下面几点能帮你减少不必要的折返跑。
+        </p>
+        <ul>
+            <li><strong>链接确认</strong> — 确保地址栏开头是 <span class="highlight">https://portal-cn-mlb.com</span>，别被相似的拼写带偏。</li>
+            <li><strong>刷新时机</strong> — 如果页面加载一半停住，先等一下，不要狂按。十秒后没反应再刷新一次。</li>
+            <li><strong>缓存与隐私</strong> — 偶尔清除一下浏览器缓存或使用无痕模式，能避开一些旧数据干扰。</li>
+            <li><strong>移动端适配</strong> — 手机浏览器同样流畅，横屏竖屏都支持，但注意关闭“自动翻译”以防布局错位。</li>
+        </ul>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见小疑问 · 简短回答</h2>
+        <div class="faq-item">
+            <div class="q">页面打不开，第一步该做什么？</div>
+            <div class="a">检查网络连接，然后手动输入 <strong>portal-cn-mlb.com</strong> 试试。有时候复制粘贴会带入隐藏字符。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">需要安装专用软件吗？</div>
+            <div class="a">不需要。任何现代浏览器（Chrome、Edge、Safari、Firefox）都能正常使用。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">我的书签突然打不开了？</div>
+            <div class="a">可以重新收藏 <a href="https://portal-cn-mlb.com" class="inline-link">mlb</a> 主页，旧的链接可能因为协议变更失效。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="bottom-links">
+        <a href="https://portal-cn-mlb.com">mlb</a>
+        <a href="#">使用建议</a>
+        <a href="#">状态页</a>
+    </div>
+
+    <div class="footer-note">
+        mlb · 日常访问小贴士 · 基于实际体验整理
+    </div>
+</div>
+</body>
+</html>
